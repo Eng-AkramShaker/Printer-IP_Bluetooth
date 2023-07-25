@@ -7,12 +7,10 @@ import 'package:ams_printer/widget/Snack_Bar.dart';
 import 'package:ams_printer/widget/text_Filed.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_scan_bluetooth/flutter_scan_bluetooth.dart';
-
 import 'dart:io';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
-
 import 'bluetooth/printer_manager.dart';
 
 void main() {
