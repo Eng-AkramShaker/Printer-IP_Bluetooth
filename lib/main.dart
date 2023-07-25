@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, unused_element, avoid_print, unused_field, avoid_unnecessary_containers, use_build_context_synchronously
 
 import 'dart:developer';
-import 'package:ams_printer/priter_services.dart';
+import 'package:ams_printer/ip/priter_services.dart';
 import 'package:ams_printer/widget/Drop.dart';
 import 'package:ams_printer/widget/Snack_Bar.dart';
 import 'package:ams_printer/widget/text_Filed.dart';

@@ -3,7 +3,7 @@
 import 'dart:developer';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
-import 'package:ams_printer/printer_widgets.dart';
+import 'package:ams_printer/widget/printer_widgets.dart';
 import 'package:esc_pos_printer/esc_pos_printer.dart';
 import 'package:esc_pos_utils/esc_pos_utils.dart';
 import 'package:flutter/material.dart';
