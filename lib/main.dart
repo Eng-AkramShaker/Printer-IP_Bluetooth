@@ -3,7 +3,7 @@
 import 'dart:developer';
 import 'package:ams_printer/ip/priter_services.dart';
 import 'package:ams_printer/widget/Drop.dart';
-import 'package:ams_printer/widget/Snack_Bar.dart';
+import 'package:ams_printer/widget/switch.dart';
 import 'package:ams_printer/widget/text_Filed.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_scan_bluetooth/flutter_scan_bluetooth.dart';
@@ -11,6 +11,7 @@ import 'dart:io';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
+
 import 'bluetooth/printer_manager.dart';
 
 void main() {
@@ -63,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return menuItems;
   }
 
-// Bluetooth ========================================================================================================
+// Bluetooth ================================================================================
 
   late FlutterScanBluetooth _scanBluetooth;
   late List<BluetoothDevice> _devices;
@@ -139,95 +140,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 TEXT_controller: name_print,
               ),
               const SizedBox(height: 10),
-              // طراز الطابعة  ==============================================================================================
+              // طراز الطابعة  ===============================================================================
 
               const Custom_Drop1(hintText: "طراز الطابعة"),
               const SizedBox(height: 15),
 
-              //الواجهة الطابعة =============================================================================================
+              //الواجهة الطابعة ==============================================================================
 
               custom_dropdown(),
 
               // ==============================================================================================
 
               const Custom_Drop2(hintText: 'حجم الورقة'),
-
-              // ==============================================================================================
-
-              ElevatedButton(
-                onPressed: () {
-                  _print2();
-                  Snak_Bar(context, 'تم بنجاح الطباعة');
-                },
-                child: Container(
-                  width: 200,
-                  alignment: Alignment.center,
-                  child: const Text(
-                    'إختبار الطابعة',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-              ),
-
-              //  -------------------------------------------------------------------------
-              // const SizedBox(height: 10),
-              // Card(
-              //   child: Padding(
-              //     padding: const EdgeInsets.all(20),
-              //     child: Column(
-              //       children: [
-              //         Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //           children: [
-              //             coustom_switch(isToggled: isToggled),
-              //             Container(
-              //               alignment: Alignment.center,
-              //               child: const Text("طابعة  الفواتير",
-              //                   style: TextStyle(fontSize: 15)),
-              //             ),
-              //           ],
-              //         ),
-              //         const SizedBox(height: 15),
-              //         Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //           children: [
-              //             coustom_switch(isToggled: isToggled),
-              //             Container(
-              //               alignment: Alignment.center,
-              //               child: const Text("طابعة  الايصالات",
-              //                   style: TextStyle(fontSize: 15)),
-              //             ),
-              //           ],
-              //         ),
-              //         const SizedBox(height: 15),
-              //         Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //           children: [
-              //             coustom_switch(isToggled: isToggled),
-              //             Container(
-              //               alignment: Alignment.center,
-              //               child: const Text("طابعة  المستندات",
-              //                   style: TextStyle(fontSize: 15)),
-              //             ),
-              //           ],
-              //         ),
-              //         const SizedBox(height: 15),
-              //         Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //           children: [
-              //             coustom_switch(isToggled: isToggled),
-              //             Container(
-              //               alignment: Alignment.center,
-              //               child: const Text("طابعة  الطلبات",
-              //                   style: TextStyle(fontSize: 15)),
-              //             ),
-              //           ],
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
-              // const SizedBox(height: 30),
 
               // ==============================================================================================
 
@@ -244,6 +168,80 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 200,
                   alignment: Alignment.center,
                   child: const Text(
+                    'إختبار الطابعة',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ),
+              ),
+
+              //  --------------------------------------------------------------------------------------
+              const SizedBox(height: 10),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          coustom_switch(isToggled: isToggled),
+                          Container(
+                            alignment: Alignment.center,
+                            child: const Text("طابعة  الفواتير",
+                                style: TextStyle(fontSize: 15)),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 15),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          coustom_switch(isToggled: isToggled),
+                          Container(
+                            alignment: Alignment.center,
+                            child: const Text("طابعة  الايصالات",
+                                style: TextStyle(fontSize: 15)),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 15),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          coustom_switch(isToggled: isToggled),
+                          Container(
+                            alignment: Alignment.center,
+                            child: const Text("طابعة  المستندات",
+                                style: TextStyle(fontSize: 15)),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 15),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          coustom_switch(isToggled: isToggled),
+                          Container(
+                            alignment: Alignment.center,
+                            child: const Text("طابعة  الطلبات",
+                                style: TextStyle(fontSize: 15)),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 30),
+
+              // ========================================================================================
+
+              ElevatedButton(
+                onPressed: () {},
+                child: Container(
+                  width: 200,
+                  alignment: Alignment.center,
+                  child: const Text(
                     ' تأكيد',
                     style: TextStyle(fontSize: 15),
                   ),
@@ -256,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  //  search_Bluetooth  ==============================================================================================
+  //  search_Bluetooth  ==================================================================================
 
   Row search_BL(BuildContext context) {
     return Row(
@@ -316,7 +314,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
   }
-  //  dropdown  ==============================================================================================
+  //  dropdown  ===========================================================================================
 
   Form custom_dropdown() {
     return Form(
@@ -385,7 +383,7 @@ class _MyHomePageState extends State<MyHomePage> {
     printTest(ctrl.text, context);
   }
 
-  //  BluetoothDevice ==============================================================================================
+  //  BluetoothDevice ======================================================================================
 
   Widget _buildDev(BluetoothDevice dev) => GestureDetector(
         onTap: () {
