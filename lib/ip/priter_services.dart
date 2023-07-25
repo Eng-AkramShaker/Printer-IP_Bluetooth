@@ -1,4 +1,4 @@
-// ignore_for_file: library_prefixes, depend_on_referenced_packages, unnecessary_import
+// ignore_for_file: library_prefixes, depend_on_referenced_packages, unnecessary_import, unnecessary_null_comparison
 
 import 'dart:developer';
 import 'dart:typed_data';
@@ -11,9 +11,11 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:image/image.dart' as AnotherImage;
 
+import '../widget/Snack_Bar.dart';
+
 GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
 
-printTest(String ip) async {
+printTest(String ip, context) async {
   log('printTest');
   try {
     const PaperSize paper = PaperSize.mm80;
@@ -23,6 +25,8 @@ printTest(String ip) async {
     final PosPrintResult res = await printerService.connect(ip, port: 9100);
     if (res == PosPrintResult.success) {
       log('connected');
+
+      Snak_Bar(context, "تم الإتصال بنجاح");
       Uint8List? companyNameAs8List = await createImageFromWidget(
           Column(
             mainAxisSize: MainAxisSize.min,
@@ -86,7 +90,9 @@ printTest(String ip) async {
       printerService.disconnect();
     }
     log('res value: ${res.value}');
-    log('res msg: ${res.msg}');
+    log('res msg::: ${res.msg}');
+
+    Snak_Bar(context, res.msg);
   } catch (e, stackTrace) {
     log(e.toString(), stackTrace: stackTrace);
   }

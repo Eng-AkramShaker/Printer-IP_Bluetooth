@@ -139,18 +139,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 TEXT_controller: name_print,
               ),
               const SizedBox(height: 10),
-              // ==============================================================================================
+              // طراز الطابعة  ==============================================================================================
 
               const Custom_Drop1(hintText: "طراز الطابعة"),
               const SizedBox(height: 15),
 
-              // واجه الطابعه =============================================================================================
+              //الواجهة الطابعة =============================================================================================
 
               custom_dropdown(),
 
               // ==============================================================================================
 
-              // const Custom_Drop2(hintText: 'حجم الورقة'),
+              const Custom_Drop2(hintText: 'حجم الورقة'),
 
               // ==============================================================================================
 
@@ -170,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
 
               //  -------------------------------------------------------------------------
-              const SizedBox(height: 10),
+              // const SizedBox(height: 10),
               // Card(
               //   child: Padding(
               //     padding: const EdgeInsets.all(20),
@@ -229,18 +229,16 @@ class _MyHomePageState extends State<MyHomePage> {
               // ),
               // const SizedBox(height: 30),
 
-              // ---------------------------------------------------------------------------------------------------
-
               // ==============================================================================================
 
               ElevatedButton(
                 onPressed: () async {
+                  await _print2();
+
                   if (_selectedDevice?.name != null) {
                     await PrinterManager.connect(_selectedDevice!.address);
                     await PrinterManager.printImg(imgFile.path);
                   }
-                  _print2();
-                  Snak_Bar(context, 'تم بنجاح الطباعة');
                 },
                 child: Container(
                   width: 200,
@@ -382,9 +380,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   //  print  ==============================================================================================
 
-  void _print2() {
+  _print2() {
     log(ctrl.text);
-    printTest(ctrl.text);
+    printTest(ctrl.text, context);
   }
 
   //  BluetoothDevice ==============================================================================================
